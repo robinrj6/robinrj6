@@ -1,0 +1,54 @@
+name: Update Monkeytype Badge
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'   # every 6 hours
+  workflow_dispatch:
+
+jobs:
+  update-badge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch WPM and update Gist
+        env:
+          MONKEYTYPE_API_KEY: ${{ secrets.MONKEYTYPE_KEY }}
+          GIST_SECRET: ${{ secrets.GIST_SECRET }}
+          GIST_ID: ${{ secrets.GIST_ID }}
+        run: |
+          # Fetch personal best for 60s mode
+          RESPONSE=$(curl -s \
+            -H "Authorization: ApeKey $MONKEYTYPE_KEY" \
+            "https://api.monkeytype.com/users/personalBests?mode=time&mode2=60")
+
+          WPM=$(echo "$RESPONSE" | python3 -c "
+          import sys, json
+          data = json.load(sys.stdin)
+          pbs = data.get('data', {}).get('time', {}).get('60', [])
+          if pbs:
+              best = max(pbs, key=lambda x: x.get('wpm', 0))
+              print(round(best['wpm']))
+          else:
+              print('N/A')
+          ")
+
+          echo "WPM: $WPM"
+
+          # Build shields.io endpoint JSON
+          PAYLOAD=$(python3 -c "
+          import json
+          print(json.dumps({
+              'schemaVersion': 1,
+              'label': 'monkeytype',
+              'message': '${WPM} wpm',
+              'color': 'orange',
+              'namedLogo': 'keybase',
+              'style': 'flat'
+          }))
+          ")
+
+          # Update the Gist
+          curl -s -X PATCH \
+            -H "Authorization: token $GIST_SECRET" \
+            -H "Content-Type: application/json" \
+            -d "{\"files\":{\"monkeytype.json\":{\"content\":$(echo $PAYLOAD | python3 -c \"import json,sys; print(json.dumps(sys.stdin.read()))\" )}}}" \
+            "https://api.github.com/gists/$GIST_ID"
