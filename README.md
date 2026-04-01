@@ -14,7 +14,6 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
-=
 
  <a href="https://monkeytype.com/profile/FrankensteinRjR">
    <img src="https://raw.githubusercontent.com/robinrj6/robinrj6/monkeytype-readme/?pb=true alt="My Monkeytype profile" />
