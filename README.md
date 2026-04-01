@@ -14,4 +14,8 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
-![Monkeytype WPM](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/robinrj6/dd41d4d0170071ef97a5495746deef0d/raw/monkeytype.json)
+=
+
+ <a href="https://monkeytype.com/profile/FrankensteinRjR">
+   <img src="https://raw.githubusercontent.com/robinrj6/robinrj6/monkeytype-readme/?pb=true alt="My Monkeytype profile" />
+ </a>
