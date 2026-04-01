@@ -2,7 +2,7 @@ name: Update Monkeytype Badge
 
 on:
   schedule:
-    - cron: '0 */6 * * *'   # every 6 hours
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
 jobs:
@@ -15,40 +15,51 @@ jobs:
           GIST_SECRET: ${{ secrets.GIST_SECRET }}
           GIST_ID: ${{ secrets.GIST_ID }}
         run: |
-          # Fetch personal best for 60s mode
-          RESPONSE=$(curl -s \
-            -H "Authorization: ApeKey $MONKEYTYPE_KEY" \
-            "https://api.monkeytype.com/users/personalBests?mode=time&mode2=60")
+          python3 - <<'EOF'
+          import json, os, urllib.request
 
-          WPM=$(echo "$RESPONSE" | python3 -c "
-          import sys, json
-          data = json.load(sys.stdin)
-          pbs = data.get('data', {}).get('time', {}).get('60', [])
-          if pbs:
-              best = max(pbs, key=lambda x: x.get('wpm', 0))
-              print(round(best['wpm']))
-          else:
-              print('N/A')
-          ")
+          api_key     = os.environ["MONKEYTYPE_API_KEY"]
+          gist_secret = os.environ["GIST_SECRET"]
+          gist_id     = os.environ["GIST_ID"]
 
-          echo "WPM: $WPM"
+          # 1. Fetch personal bests
+          req = urllib.request.Request(
+              "https://api.monkeytype.com/users/personalBests?mode=time&mode2=60",
+              headers={"Authorization": f"ApeKey {api_key}"}
+          )
+          with urllib.request.urlopen(req) as r:
+              data = json.loads(r.read())
 
-          # Build shields.io endpoint JSON
-          PAYLOAD=$(python3 -c "
-          import json
-          print(json.dumps({
-              'schemaVersion': 1,
-              'label': 'monkeytype',
-              'message': '${WPM} wpm',
-              'color': 'orange',
-              'namedLogo': 'keybase',
-              'style': 'flat'
-          }))
-          ")
+          pbs = data.get("data", {}).get("time", {}).get("60", [])
+          wpm = str(round(max(pbs, key=lambda x: x.get("wpm", 0))["wpm"])) + " wpm" if pbs else "N/A"
+          print(f"WPM: {wpm}")
 
-          # Update the Gist
-          curl -s -X PATCH \
-            -H "Authorization: token $GIST_SECRET" \
-            -H "Content-Type: application/json" \
-            -d "{\"files\":{\"monkeytype.json\":{\"content\":$(echo $PAYLOAD | python3 -c \"import json,sys; print(json.dumps(sys.stdin.read()))\" )}}}" \
-            "https://api.github.com/gists/$GIST_ID"
+          # 2. Build valid shields.io endpoint JSON
+          badge = {
+              "schemaVersion": 1,
+              "label": "monkeytype",
+              "message": wpm,
+              "color": "orange"
+          }
+
+          # 3. Update Gist
+          payload = json.dumps({
+              "files": {
+                  "monkeytype.json": {
+                      "content": json.dumps(badge)
+                  }
+              }
+          }).encode()
+
+          req2 = urllib.request.Request(
+              f"https://api.github.com/gists/{gist_id}",
+              data=payload,
+              method="PATCH",
+              headers={
+                  "Authorization": f"token {gist_secret}",
+                  "Content-Type": "application/json"
+              }
+          )
+          with urllib.request.urlopen(req2) as r:
+              print("Gist updated:", r.status)
+          EOF
