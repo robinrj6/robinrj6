@@ -21,6 +21,7 @@ jobs:
               run: |
                   mkdir public
                   curl -o public/monkeytype-readme-pb.svg https://monkeytype-readme.zeabur.app/generate-svg/FrankensteinRjR/THEMES?pb=true
+                                    perl -0777 -i -pe 's/viewBox="0 0 500 660" width="500" height="660"/viewBox="0 220 500 220" width="500" height="220"/g' public/monkeytype-readme-pb.svg
                 #   curl -o public/monkeytype-readme.svg https://monkeytype-readme.zeabur.app/generate-svg/FrankensteinRjR/THEMES
                 #   curl -o public/monkeytype-readme-lb.svg https://monkeytype-readme.zeabur.app/generate-svg/FrankensteinRjR/THEMES?lb=true
                 #   curl -o public/monkeytype-readme-lb-pb.svg https://monkeytype-readme.zeabur.app/generate-svg/FrankensteinRjR/THEMES?lbpb=true
