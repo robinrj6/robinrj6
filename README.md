@@ -4,14 +4,32 @@ I’m Robin — I build across Python, Rust, and modern web stacks.
 
 ## 🚀 Major Projects
 
-| Project | Language | ⭐ Stars | 🍴 Forks |
-|---|---|---:|---:|
-| [FFmpeg-batch](https://github.com/robinrj6/FFmpeg-batch) | Python | 6 | 2 |
-| [Auto-Brightness-for-laptops](https://github.com/robinrj6/Auto-Brightness-for-laptops) | Python | 2 | 1 |
-| [Adaptive-ControlNet](https://github.com/robinrj6/Adaptive-ControlNet) | Python | 0 | 0 |
-| [ToDo---SvelteKit](https://github.com/robinrj6/ToDo---SvelteKit) | Svelte | 0 | 0 |
-| [AOC2023](https://github.com/robinrj6/AOC2023) | Rust | 0 | 0 |
-| [hellorobin2](https://github.com/robinrj6/hellorobin2) | Astro | 0 | 0 |
+<p align="center">
+  <a href="https://github.com/robinrj6/FFmpeg-batch">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=robinrj6&repo=FFmpeg-batch&theme=tokyonight&hide_border=true" alt="FFmpeg-batch" />
+  </a>
+  <a href="https://github.com/robinrj6/Auto-Brightness-for-laptops">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=robinrj6&repo=Auto-Brightness-for-laptops&theme=tokyonight&hide_border=true" alt="Auto-Brightness-for-laptops" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/robinrj6/Adaptive-ControlNet">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=robinrj6&repo=Adaptive-ControlNet&theme=tokyonight&hide_border=true" alt="Adaptive-ControlNet" />
+  </a>
+  <a href="https://github.com/robinrj6/ToDo---SvelteKit">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=robinrj6&repo=ToDo---SvelteKit&theme=tokyonight&hide_border=true" alt="ToDo---SvelteKit" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/robinrj6/AOC2023">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=robinrj6&repo=AOC2023&theme=tokyonight&hide_border=true" alt="AOC2023" />
+  </a>
+  <a href="https://github.com/robinrj6/hellorobin2">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=robinrj6&repo=hellorobin2&theme=tokyonight&hide_border=true" alt="hellorobin2" />
+  </a>
+</p>
 
 ### Repo Snapshot
 
