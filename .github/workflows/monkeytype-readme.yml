@@ -20,11 +20,11 @@ jobs:
               with:
                   node-version: "20.x"
 
-            - name: Download Monkeytype SVG
-              run: |
-                  mkdir -p public
-                  curl -o public/monkeytype-readme-pb.svg https://monkeytype-readme.zeabur.app/generate-svg/FrankensteinRjR/THEMES?pb=true
-                  perl -0777 -i -pe 's/viewBox="0 0 500 660" width="500" height="660"/viewBox="0 220 500 220" width="500" height="220"/g' public/monkeytype-readme-pb.svg
+            - name: Generate Monkeytype card
+              env:
+                  MT_USER: FrankensteinRjR
+              run: node scripts/monkeytype-card.mjs
+
             - name: Publish generated assets
               uses: crazy-max/ghaction-github-pages@v4.0.0
               with:
@@ -32,4 +32,3 @@ jobs:
                   build_dir: public
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
