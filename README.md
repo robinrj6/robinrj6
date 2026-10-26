@@ -10,7 +10,8 @@
   <img src="assets/monkeytype-icon-orange.svg" width="24" alt="Monkeytype icon" /> Monkeytype
 </h2>
 
-<a href="https://monkeytype.com/profile/FrankensteinRjR">
-  ![Monkeytype](https://raw.githubusercontent.com/robinrj6/robinrj6/monkeytype-readme/monkeytype-card.svg)
-  <img src="https://raw.githubusercontent.com/robinrj6/robinrj6/monkeytype-readme/monkeytype-readme-pb.svg" alt="My Monkeytype profile" />
-</a>
+
+<!-- <a href="https://monkeytype.com/profile/FrankensteinRjR"> -->
+  <!-- <img src="https://raw.githubusercontent.com/robinrj6/robinrj6/monkeytype-readme/monkeytype-readme-pb.svg" alt="My Monkeytype profile" /> -->
+![Monkeytype](https://raw.githubusercontent.com/robinrj6/robinrj6/monkeytype-readme/monkeytype-card.svg)
+<!-- </a> -->
