@@ -20,7 +20,8 @@ const pbs = [
 
 const t = data.typingStats ?? {};
 const hours = ((t.timeTyping ?? 0) / 3600).toFixed(1);
-const esc = (s) => String(s).replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+const esc = (s) =>
+  String(s).replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
 
 const rows = pbs
   .map(([label, pb], i) => {
