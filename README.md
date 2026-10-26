@@ -11,5 +11,6 @@
 </h2>
 
 <a href="https://monkeytype.com/profile/FrankensteinRjR">
+  ![Monkeytype](https://raw.githubusercontent.com/robinrj6/robinrj6/monkeytype-readme/monkeytype-card.svg)
   <img src="https://raw.githubusercontent.com/robinrj6/robinrj6/monkeytype-readme/monkeytype-readme-pb.svg" alt="My Monkeytype profile" />
 </a>
