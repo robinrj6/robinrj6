@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">
+  <style>
+    .bg{fill:#323437}
+    .title{font:700 20px monospace;fill:#e2b714}
+    .label{font:14px monospace;fill:#646669}
+    .wpm{font:700 18px monospace;fill:#d1d0c5}
+    .sub{font:14px monospace;fill:#d1d0c5}
+    .stat{font:14px monospace;fill:#646669}
+    .val{fill:#e2b714;font-weight:700}
+  </style>
+  <rect class="bg" width="500" height="300" rx="10"/>
+  <text x="24" y="40" class="title">monkeytype · FrankensteinRjR</text>
+  <text x="24" y="76" class="stat">personal bests</text>
+  
+    <text x="24" y="108" class="label">15s</text>
+    <text x="110" y="108" class="wpm">56 wpm</text>
+    <text x="230" y="108" class="sub">99% acc</text>
+    <text x="330" y="108" class="sub">65% cons</text>
+    <text x="24" y="142" class="label">30s</text>
+    <text x="110" y="142" class="wpm">54 wpm</text>
+    <text x="230" y="142" class="sub">99% acc</text>
+    <text x="330" y="142" class="sub">73% cons</text>
+    <text x="24" y="176" class="label">60s</text>
+    <text x="110" y="176" class="wpm">51 wpm</text>
+    <text x="230" y="176" class="sub">100% acc</text>
+    <text x="330" y="176" class="sub">73% cons</text>
+    <text x="24" y="210" class="label">120s</text>
+    <text x="110" y="210" class="wpm">45 wpm</text>
+    <text x="230" y="210" class="sub">94% acc</text>
+    <text x="330" y="210" class="sub">69% cons</text>
+  <line x1="24" y1="246" x2="476" y2="246" stroke="#646669" stroke-opacity=".4"/>
+  <text x="24" y="272" class="stat">tests <tspan class="val">737</tspan>   time <tspan class="val">15.6h</tspan>   streak <tspan class="val">2d</tspan></text>
+</svg>
